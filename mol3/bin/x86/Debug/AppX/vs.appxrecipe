@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-03-23T12:52:39.276</Modified>
+      <Modified>2023-03-23T19:31:46.307</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\mol3.exe">
       <PackagePath>entrypoint\mol3.exe</PackagePath>
-      <Modified>2023-03-23T12:52:38.458</Modified>
+      <Modified>2023-03-23T19:31:45.670</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.14\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -46,13 +46,9 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2022-10-19T13:28:50.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\Assets\img\widm_background.jpg">
-      <PackagePath>Assets\img\widm_background.jpg</PackagePath>
-      <Modified>2023-03-22T18:02:07.096</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2023-03-22T22:52:44.298</Modified>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\Assets\img\black-close-icon-3.png">
+      <PackagePath>Assets\img\black-close-icon-3.png</PackagePath>
+      <Modified>2023-03-23T19:01:32.285</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -88,25 +84,41 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2023-03-22T17:19:21.983</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\Assets\img\widm_background.jpg">
+      <PackagePath>Assets\img\widm_background.jpg</PackagePath>
+      <Modified>2023-03-22T18:02:07.096</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+      <Modified>2023-03-22T22:52:44.298</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\mol3.xr.xml">
       <PackagePath>mol3.xr.xml</PackagePath>
-      <Modified>2023-03-23T12:52:38.378</Modified>
+      <Modified>2023-03-23T19:31:45.593</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2023-03-23T12:52:38.384</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\AdminPage.xbf">
-      <PackagePath>AdminPage.xbf</PackagePath>
-      <Modified>2023-03-23T12:52:38.384</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\HomePage.xbf">
-      <PackagePath>HomePage.xbf</PackagePath>
-      <Modified>2023-03-23T12:52:38.385</Modified>
+      <Modified>2023-03-23T19:31:45.610</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2023-03-23T12:52:38.385</Modified>
+      <Modified>2023-03-23T19:31:45.610</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\AdminView.xbf">
+      <PackagePath>Views\AdminView.xbf</PackagePath>
+      <Modified>2023-03-23T19:31:45.610</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\HomeView.xbf">
+      <PackagePath>Views\HomeView.xbf</PackagePath>
+      <Modified>2023-03-23T19:31:45.610</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\PersonView.xbf">
+      <PackagePath>Views\PersonView.xbf</PackagePath>
+      <Modified>2023-03-23T19:31:45.610</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\SettingView.xbf">
+      <PackagePath>Views\SettingView.xbf</PackagePath>
+      <Modified>2023-03-23T19:31:45.610</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.22621.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -114,11 +126,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-03-23T12:52:38.771</Modified>
+      <Modified>2023-03-23T19:31:45.892</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Core\mol3.exe">
       <PackagePath>mol3.exe</PackagePath>
-      <Modified>2023-03-23T12:52:39.272</Modified>
+      <Modified>2023-03-23T19:31:46.303</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

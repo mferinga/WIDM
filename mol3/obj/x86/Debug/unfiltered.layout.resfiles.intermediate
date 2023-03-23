@@ -1,3 +1,4 @@
+Assets\img\black-close-icon-3.png
 Assets\img\widm_background.jpg
 Assets\LockScreenLogo.scale-200.png
 Assets\SplashScreen.scale-200.png
@@ -6,10 +7,12 @@ Assets\Square44x44Logo.scale-200.png
 Assets\Square44x44Logo.targetsize-24_altform-unplated.png
 Assets\StoreLogo.png
 Assets\Wide310x150Logo.scale-200.png
-AdminPage.xbf
 App.xbf
-HomePage.xbf
 MainPage.xbf
 mol3.xr.xml
+Views\AdminView.xbf
+Views\HomeView.xbf
+Views\PersonView.xbf
+Views\SettingView.xbf
 Properties\Default.rd.xml
 WinMetadata\Windows.winmd

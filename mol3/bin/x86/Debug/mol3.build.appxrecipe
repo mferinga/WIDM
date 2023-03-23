@@ -34,11 +34,8 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.22621.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\Assets\img\widm_background.jpg">
-      <PackagePath>Assets\img\widm_background.jpg</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\Assets\img\black-close-icon-3.png">
+      <PackagePath>Assets\img\black-close-icon-3.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -67,20 +64,32 @@
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\Assets\img\widm_background.jpg">
+      <PackagePath>Assets\img\widm_background.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\mol3.xr.xml">
       <PackagePath>mol3.xr.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\AdminPage.xbf">
-      <PackagePath>AdminPage.xbf</PackagePath>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\HomePage.xbf">
-      <PackagePath>HomePage.xbf</PackagePath>
-    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\AdminView.xbf">
+      <PackagePath>Views\AdminView.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\HomeView.xbf">
+      <PackagePath>Views\HomeView.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\PersonView.xbf">
+      <PackagePath>Views\PersonView.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\SettingView.xbf">
+      <PackagePath>Views\SettingView.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.22621.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>

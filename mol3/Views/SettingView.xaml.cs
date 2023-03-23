@@ -15,33 +15,16 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace mol3
+namespace mol3.Views
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class HomePage : Page
+    public sealed partial class SettingView : Page
     {
-        public HomePage()
+        public SettingView()
         {
             this.InitializeComponent();
-        }
-
-        private void getName(object sender, RoutedEventArgs e, string name)
-        {
-            if (name == "admin")
-            {
-                this.Frame.Navigate(typeof(AdminPage));
-            }
-        }
-
-        private void onEnterPress(object sender, KeyRoutedEventArgs e)
-        {
-            if (e.Key == Windows.System.VirtualKey.Enter)
-            {
-                string name = nameBox.Text;
-                getName(sender, e, name);
-            }
         }
     }
 }

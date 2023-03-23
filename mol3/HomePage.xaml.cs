@@ -20,16 +20,28 @@ namespace mol3
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class Page1 : Page
+    public sealed partial class HomePage : Page
     {
-        public Page1()
+        public HomePage()
         {
             this.InitializeComponent();
         }
 
-        private void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        private void getName(object sender, RoutedEventArgs e, string name)
         {
-            this.Frame.Navigate(typeof(Page2));
+            if (name == "admin")
+            {
+                this.Frame.Navigate(typeof(AdminPage));
+            }
+        }
+
+        private void onEnterPress(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                string name = nameBox.Text;
+                getName(sender, e, name);
+            }
         }
     }
 }

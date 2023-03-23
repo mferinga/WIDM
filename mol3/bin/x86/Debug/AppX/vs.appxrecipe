@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-03-22T22:56:10.310</Modified>
+      <Modified>2023-03-23T12:52:39.276</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\mol3.exe">
       <PackagePath>entrypoint\mol3.exe</PackagePath>
-      <Modified>2023-03-22T22:56:08.272</Modified>
+      <Modified>2023-03-23T12:52:38.458</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.14\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -45,6 +45,10 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.22621.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2022-10-19T13:28:50.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\Assets\img\widm_background.jpg">
+      <PackagePath>Assets\img\widm_background.jpg</PackagePath>
+      <Modified>2023-03-22T18:02:07.096</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
@@ -86,23 +90,23 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\mol3.xr.xml">
       <PackagePath>mol3.xr.xml</PackagePath>
-      <Modified>2023-03-22T22:56:08.169</Modified>
+      <Modified>2023-03-23T12:52:38.378</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2023-03-22T22:56:08.202</Modified>
+      <Modified>2023-03-23T12:52:38.384</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\AdminPage.xbf">
+      <PackagePath>AdminPage.xbf</PackagePath>
+      <Modified>2023-03-23T12:52:38.384</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\HomePage.xbf">
+      <PackagePath>HomePage.xbf</PackagePath>
+      <Modified>2023-03-23T12:52:38.385</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2023-03-22T22:56:08.202</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Page1.xbf">
-      <PackagePath>Page1.xbf</PackagePath>
-      <Modified>2023-03-22T22:56:08.202</Modified>
-    </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Page2.xbf">
-      <PackagePath>Page2.xbf</PackagePath>
-      <Modified>2023-03-22T22:56:08.202</Modified>
+      <Modified>2023-03-23T12:52:38.385</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.22621.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -110,11 +114,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-03-22T22:56:08.831</Modified>
+      <Modified>2023-03-23T12:52:38.771</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Core\mol3.exe">
       <PackagePath>mol3.exe</PackagePath>
-      <Modified>2023-03-22T22:56:10.299</Modified>
+      <Modified>2023-03-23T12:52:39.272</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

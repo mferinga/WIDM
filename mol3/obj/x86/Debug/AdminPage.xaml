@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="mol3.Page2"
+    x:Class="mol3.AdminPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:mol3"
@@ -9,9 +9,14 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock x:Name="pageTitle" Text="Page 2" />
-        <HyperlinkButton Content="Click to go to page 1" 
-                         Click="HyperlinkButton_Click"
+        <Grid.Background>
+            <ImageBrush ImageSource="../Assets/img/widm_background.jpg" Opacity="0.4"></ImageBrush>
+        </Grid.Background>
+
+        <TextBlock x:ConnectionId='2' x:Name="pageTitle" Text="Page 2" />
+        <HyperlinkButton x:ConnectionId='3' Content="Click to go to page 1" 
+                                                      
                          HorizontalAlignment="Center"/>
     </Grid>
 </Page>
+

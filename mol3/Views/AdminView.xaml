@@ -12,20 +12,11 @@
         <Grid.Background>
             <ImageBrush ImageSource="../Assets/img/widm_background.jpg" Opacity="0.4"></ImageBrush>
         </Grid.Background>
+        <Button x:Name="backToHome" Content="Home" Margin="0,228,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.258,-4.062" HorizontalAlignment="Center" Height="54" Width="210" Click="ReturnHome_Onclick"/>
+        <Button x:Name="addTest" Content="Add Test" Margin="0,346,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.258,-4.062" HorizontalAlignment="Center" Height="54" Width="210" Click="AddTest_OnClick"/>
+        <Button x:Name="addMember" Content="Add Member" Margin="0,468,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.258,-4.062" HorizontalAlignment="Center" Height="54" Width="210" Click="AddMember_OnClick"/>
+        <Button x:Name="viewResults" Content="Test Result" Margin="0,586,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.258,-4.062" HorizontalAlignment="Center" Height="54" Width="210" Click="ViewResults_OnClick"/>
 
-        <NavigationView x:Name="NavView" ItemInvoked="NavView_ItemInvoked" Loaded="NavView_Loaded" BackRequested="NavView_BackRequested"
-                        IsBackEnabled="{Binding ElementName=ContentFrame, Path=CanGoBack}">
-            <NavigationView.MenuItems>
-                <NavigationViewItem Name="Item" Icon="Home" Content="Home" Tag="HomeView" />
-                <NavigationViewItem Name="Item1" Icon="People" Content="Add Person" Tag="PersonView" />
-                <NavigationViewItem Name="Item2" Icon="Add" Content="Add Question" Tag="SamplePage3" />
-                <NavigationViewItem Name="Item3" Icon="Admin" Content="Admin Page" Tag="AdminView" />
-                <Button Name="CloseButton" Click="CloseMenu_OnClick">Close</Button>
-                <Button Name="OpenButton" Click="OpenMenu_OnClick">Open</Button>
-            </NavigationView.MenuItems>
-            <Frame x:Name="ContentFrame" NavigationFailed="ContentFrame_NavigationFailed" Navigated="ContentFrame_Navigated">
-                <TextBlock x:Name="Mol" HorizontalAlignment="Left" Margin="428,374,0,0" TextWrapping="Wrap" Text="Ik ben hier nu admin" VerticalAlignment="Top"/>
-            </Frame>
-        </NavigationView>
+
     </Grid>
 </Page>

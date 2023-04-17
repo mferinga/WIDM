@@ -9,7 +9,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Grid.Background>
+            <ImageBrush ImageSource="../Assets/img/widm_background.jpg" Opacity="0.4"></ImageBrush>
+        </Grid.Background>
     </Grid>
 </Page>
 

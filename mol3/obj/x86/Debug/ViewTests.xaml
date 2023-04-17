@@ -1,0 +1,62 @@
+﻿<Page
+    x:Class="mol3.ViewTests"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:mol3"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../Assets/img/widm_background.jpg" Opacity="0.4"></ImageBrush>
+        </Grid.Background>
+        <TextBlock HorizontalAlignment="Left" Margin="102,102,0,0" TextWrapping="Wrap" Text="Available Tests:" VerticalAlignment="Top" Height="51" Width="420" FontSize="32"/>
+        <RelativePanel>
+            <ListView x:ConnectionId='6' Name="TestList"
+                      SelectionMode="Single"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      ScrollViewer.IsVerticalRailEnabled="True"
+                      ScrollViewer.VerticalScrollMode="Enabled"
+                      ScrollViewer.HorizontalScrollMode="Enabled"
+                      ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                      ScrollViewer.IsHorizontalRailEnabled="True"
+                      Margin="90, 160, 20, 20">
+                <ListView.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="id" Margin="8,0" Width="50" Foreground="Gray"/>
+                            <TextBlock Text="testnaam" Width="300" Foreground="Gray"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.HeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate                        >
+                        <StackPanel x:ConnectionId='10' Orientation="Horizontal">
+                            <TextBlock x:ConnectionId='11' Name="TestId"
+                                                         
+                                       Width="50"/>
+                            <TextBlock x:ConnectionId='12' Name="TestNaam"
+                                                               
+                                       Width="300"/>
+                            <Button x:ConnectionId='13' x:Name="DelButton" 
+                                    Content="Delete"
+                                                            />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBox x:ConnectionId='7' x:Name="checkDeleteInput" Margin="80,600,0,0" Width="250" HorizontalAlignment="Left" FontSize="20" PlaceholderText="type id to confirm delete" />
+        </RelativePanel>
+
+
+        <TextBlock HorizontalAlignment="Right" Margin="0,102,102,0" TextWrapping="Wrap" Text="Add Test:" VerticalAlignment="Top" Height="51" Width="420" FontSize="32"/>
+        <Button x:ConnectionId='2' x:Name="InsertTest" Content="Insert" HorizontalAlignment="Right" Margin="0,391,260,0" VerticalAlignment="Top" Height="55" Width="277" FontSize="22"                         />
+        <TextBox x:ConnectionId='3' x:Name="TestName" HorizontalAlignment="Right" Margin="0,238,180,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="106" Width="375" FontSize="20"/>
+        <TextBlock x:ConnectionId='4' x:Name="NamePlaceHolder" HorizontalAlignment="Right" Margin="0,238,550,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Height="51" Width="122" FontSize="32"/>
+
+        <Button x:ConnectionId='5' x:Name="backButton" Margin="10,10,0,0" Padding="30,5" Content="Back" VerticalAlignment="Top"                         />
+    </Grid>
+</Page>
+

@@ -13,6 +13,6 @@ mol3.xr.xml
 Views\AdminView.xbf
 Views\HomeView.xbf
 Views\PersonView.xbf
-Views\SettingView.xbf
+ViewTests.xbf
 Properties\Default.rd.xml
 WinMetadata\Windows.winmd

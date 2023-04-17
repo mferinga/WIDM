@@ -12,21 +12,12 @@
         <Grid.Background>
             <ImageBrush ImageSource="../Assets/img/widm_background.jpg" Opacity="0.4"></ImageBrush>
         </Grid.Background>
+        <Button x:ConnectionId='2' x:Name="backToHome" Content="Home" Margin="0,228,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.258,-4.062" HorizontalAlignment="Center" Height="54" Width="210"                           />
+        <Button x:ConnectionId='3' x:Name="addTest" Content="Add Test" Margin="0,346,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.258,-4.062" HorizontalAlignment="Center" Height="54" Width="210"                        />
+        <Button x:ConnectionId='4' x:Name="addMember" Content="Add Member" Margin="0,468,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.258,-4.062" HorizontalAlignment="Center" Height="54" Width="210"                          />
+        <Button x:ConnectionId='5' x:Name="viewResults" Content="Test Result" Margin="0,586,0,0" VerticalAlignment="Top" RenderTransformOrigin="4.258,-4.062" HorizontalAlignment="Center" Height="54" Width="210"                            />
 
-        <NavigationView x:ConnectionId='2' x:Name="NavView"                                                                                                
-                        IsBackEnabled="{Binding ElementName=ContentFrame, Path=CanGoBack}">
-            <NavigationView.MenuItems>
-                <NavigationViewItem x:ConnectionId='3' Name="Item" Icon="Home" Content="Home" Tag="HomeView" />
-                <NavigationViewItem x:ConnectionId='4' Name="Item1" Icon="People" Content="Add Person" Tag="PersonView" />
-                <NavigationViewItem x:ConnectionId='5' Name="Item2" Icon="Add" Content="Add Question" Tag="SamplePage3" />
-                <NavigationViewItem x:ConnectionId='6' Name="Item3" Icon="Admin" Content="Admin Page" Tag="AdminView" />
-                <Button x:ConnectionId='7' Name="CloseButton"                          >Close</Button>
-                <Button x:ConnectionId='8' Name="OpenButton"                         >Open</Button>
-            </NavigationView.MenuItems>
-            <Frame x:ConnectionId='9' x:Name="ContentFrame"                                                                                    >
-                <TextBlock x:ConnectionId='10' x:Name="Mol" HorizontalAlignment="Left" Margin="428,374,0,0" TextWrapping="Wrap" Text="Ik ben hier nu admin" VerticalAlignment="Top"/>
-            </Frame>
-        </NavigationView>
+
     </Grid>
 </Page>
 

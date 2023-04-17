@@ -23,10 +23,14 @@ namespace mol3
     /// </summary>
     sealed partial class App : Application
     {
-        /// <summary>
-        /// Initializes the singleton application object.  This is the first line of authored code
-        /// executed, and as such is the logical equivalent of main() or WinMain().
-        /// </summary>
+        private string connectionString =
+            @"Data Source=DESKTOP-SCK7OL5;Initial Catalog=wieisdemol;Integrated Security=SSPI";
+
+        public string ConnectionString
+        {
+            get => connectionString; set => connectionString = value;
+        }
+
         public App()
         {
             this.InitializeComponent();

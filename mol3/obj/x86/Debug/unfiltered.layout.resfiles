@@ -11,7 +11,7 @@ App.xbf
 MainPage.xbf
 mol3.xr.xml
 Views\AdminView.xbf
-Views\EditTest.xbf
+Views\EditSpecificTest.xbf
 Views\HomeView.xbf
 Views\PersonView.xbf
 Views\ViewTests.xbf

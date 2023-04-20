@@ -80,8 +80,8 @@ C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\ViewTests.g.cs
 C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\ViewTests.xaml
 C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\ViewTests.xbf
 C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\ViewTests.xbf
-C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\EditTest.g.i.cs
-C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\EditTest.g.cs
-C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\EditTest.xaml
-C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\EditTest.xbf
-C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\EditTest.xbf
+C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\EditSpecificTest.xbf
+C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\EditSpecificTest.g.i.cs
+C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\EditSpecificTest.g.cs
+C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\EditSpecificTest.xaml
+C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\EditSpecificTest.xbf

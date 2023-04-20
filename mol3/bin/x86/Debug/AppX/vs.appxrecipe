@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-04-20T11:54:58.845</Modified>
+      <Modified>2023-04-20T22:37:35.833</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\mol3.exe">
       <PackagePath>entrypoint\mol3.exe</PackagePath>
-      <Modified>2023-04-20T11:54:58.307</Modified>
+      <Modified>2023-04-20T22:37:35.241</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\matth\.nuget\packages\google.protobuf\3.21.9\lib\netstandard2.0\Google.Protobuf.dll">
       <PackagePath>Google.Protobuf.dll</PackagePath>
@@ -138,35 +138,35 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\mol3.xr.xml">
       <PackagePath>mol3.xr.xml</PackagePath>
-      <Modified>2023-04-20T11:54:58.235</Modified>
+      <Modified>2023-04-20T22:12:16.683</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2023-04-20T11:54:58.242</Modified>
+      <Modified>2023-04-20T22:37:35.168</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2023-04-20T11:54:58.242</Modified>
+      <Modified>2023-04-20T22:37:35.168</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\AdminView.xbf">
       <PackagePath>Views\AdminView.xbf</PackagePath>
-      <Modified>2023-04-20T11:54:58.242</Modified>
+      <Modified>2023-04-20T22:37:35.169</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\EditTest.xbf">
-      <PackagePath>Views\EditTest.xbf</PackagePath>
-      <Modified>2023-04-20T11:54:58.242</Modified>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\EditSpecificTest.xbf">
+      <PackagePath>Views\EditSpecificTest.xbf</PackagePath>
+      <Modified>2023-04-20T22:37:35.169</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\HomeView.xbf">
       <PackagePath>Views\HomeView.xbf</PackagePath>
-      <Modified>2023-04-20T11:54:58.242</Modified>
+      <Modified>2023-04-20T22:37:35.169</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\PersonView.xbf">
       <PackagePath>Views\PersonView.xbf</PackagePath>
-      <Modified>2023-04-20T11:54:58.243</Modified>
+      <Modified>2023-04-20T22:37:35.169</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\ViewTests.xbf">
       <PackagePath>Views\ViewTests.xbf</PackagePath>
-      <Modified>2023-04-20T11:54:58.243</Modified>
+      <Modified>2023-04-20T22:37:35.169</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.22621.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -174,11 +174,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-04-17T19:04:40.471</Modified>
+      <Modified>2023-04-20T22:12:17.297</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Core\mol3.exe">
       <PackagePath>mol3.exe</PackagePath>
-      <Modified>2023-04-20T11:54:58.841</Modified>
+      <Modified>2023-04-20T22:37:35.829</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

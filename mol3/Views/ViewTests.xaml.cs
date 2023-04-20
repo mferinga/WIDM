@@ -146,7 +146,7 @@ namespace mol3
         {
             string EditTestString = EditTextBox.Text;
             bool isNumeric = int.TryParse(EditTestString, out int testId);
-            this.Frame.Navigate(typeof(EditTest), testId);
+            this.Frame.Navigate(typeof(EditSpecificTest), testId);
         }
     }
 }

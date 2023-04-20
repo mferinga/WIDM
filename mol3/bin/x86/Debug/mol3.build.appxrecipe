@@ -115,8 +115,8 @@
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\AdminView.xbf">
       <PackagePath>Views\AdminView.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\EditTest.xbf">
-      <PackagePath>Views\EditTest.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\EditSpecificTest.xbf">
+      <PackagePath>Views\EditSpecificTest.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\HomeView.xbf">
       <PackagePath>Views\HomeView.xbf</PackagePath>

@@ -11,8 +11,9 @@ App.xbf
 MainPage.xbf
 mol3.xr.xml
 Views\AdminView.xbf
+Views\EditTest.xbf
 Views\HomeView.xbf
 Views\PersonView.xbf
-ViewTests.xbf
+Views\ViewTests.xbf
 Properties\Default.rd.xml
 WinMetadata\Windows.winmd

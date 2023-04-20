@@ -34,10 +34,11 @@ namespace mol3
 
         private void InsertTest_Click(object sender, RoutedEventArgs e)
         {
+            InsertWidmTest(TestName.Text, (App.Current as App).ConnectionString);
             TestList.ItemsSource = GetTests((App.Current as App).ConnectionString);
         }
 
-        private async void DeleteTest_Click(object sender, RoutedEventArgs e)
+        private void DeleteTest_Click(object sender, RoutedEventArgs e)
         {
             string testIdString = checkDeleteInput.Text;
             bool isNumeric = int.TryParse(testIdString, out int testId);
@@ -139,6 +140,13 @@ namespace mol3
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(AdminView));
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            string EditTestString = EditTextBox.Text;
+            bool isNumeric = int.TryParse(EditTestString, out int testId);
+            this.Frame.Navigate(typeof(EditTest), testId);
         }
     }
 }

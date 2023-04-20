@@ -115,14 +115,17 @@
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\AdminView.xbf">
       <PackagePath>Views\AdminView.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\EditTest.xbf">
+      <PackagePath>Views\EditTest.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\HomeView.xbf">
       <PackagePath>Views\HomeView.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\PersonView.xbf">
       <PackagePath>Views\PersonView.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\ViewTests.xbf">
-      <PackagePath>ViewTests.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\ViewTests.xbf">
+      <PackagePath>Views\ViewTests.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.22621.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>

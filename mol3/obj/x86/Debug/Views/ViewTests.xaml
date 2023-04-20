@@ -14,7 +14,7 @@
         </Grid.Background>
         <TextBlock HorizontalAlignment="Left" Margin="102,102,0,0" TextWrapping="Wrap" Text="Available Tests:" VerticalAlignment="Top" Height="51" Width="420" FontSize="32"/>
         <RelativePanel>
-            <ListView x:ConnectionId='6' Name="TestList"
+            <ListView x:ConnectionId='8' Name="TestList"
                       SelectionMode="Single"
                       ScrollViewer.VerticalScrollBarVisibility="Auto"
                       ScrollViewer.IsVerticalRailEnabled="True"
@@ -33,21 +33,21 @@
                 </ListView.HeaderTemplate>
                 <ListView.ItemTemplate>
                     <DataTemplate                        >
-                        <StackPanel x:ConnectionId='10' Orientation="Horizontal">
-                            <TextBlock x:ConnectionId='11' Name="TestId"
+                        <StackPanel x:ConnectionId='12' Orientation="Horizontal">
+                            <TextBlock x:ConnectionId='13' Name="TestId"
                                                          
                                        Width="50"/>
-                            <TextBlock x:ConnectionId='12' Name="TestNaam"
+                            <TextBlock x:ConnectionId='14' Name="TestNaam"
                                                                
                                        Width="300"/>
-                            <Button x:ConnectionId='13' x:Name="DelButton" 
+                            <Button x:ConnectionId='15' x:Name="DelButton" 
                                     Content="Delete"
                                                             />
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <TextBox x:ConnectionId='7' x:Name="checkDeleteInput" Margin="80,600,0,0" Width="250" HorizontalAlignment="Left" FontSize="20" PlaceholderText="type id to confirm delete" />
+            <TextBox x:ConnectionId='9' x:Name="checkDeleteInput" Margin="80,600,0,0" Width="250" HorizontalAlignment="Left" FontSize="20" PlaceholderText="type id to confirm delete" />
         </RelativePanel>
 
 
@@ -57,6 +57,9 @@
         <TextBlock x:ConnectionId='4' x:Name="NamePlaceHolder" HorizontalAlignment="Right" Margin="0,238,550,0" TextWrapping="Wrap" Text="Name:" VerticalAlignment="Top" Height="51" Width="122" FontSize="32"/>
 
         <Button x:ConnectionId='5' x:Name="backButton" Margin="10,10,0,0" Padding="30,5" Content="Back" VerticalAlignment="Top"                         />
+        <TextBox x:ConnectionId='6' x:Name="EditTextBox" HorizontalAlignment="Left" Margin="82,730,0,0" PlaceholderText="Type Id to edit" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="173" Height="42" FontSize="24"/>
+        <Button x:ConnectionId='7' x:Name="EditButton" Margin="260,730,0,0" VerticalAlignment="Top" Height="42" Width="70" Content="Edit" FontSize="24"                         />
+
     </Grid>
 </Page>
 

@@ -17,7 +17,7 @@
         <TextBlock x:Name="testName" HorizontalAlignment="Center" Margin="0,70,0,0" TextWrapping="Wrap" Text="Test name = " VerticalAlignment="Top" Height="34" Width="376" FontSize="24" TextAlignment="Center"/>
 
         <RelativePanel>
-            <ListView Name="TestList"
+            <ListView Name="QuestionList"
                       SelectionMode="Single"
                       ScrollViewer.VerticalScrollBarVisibility="Auto"
                       ScrollViewer.IsVerticalRailEnabled="True"
@@ -59,5 +59,9 @@
 
 
         <Button x:Name="backButton" Margin="10,10,0,0" Padding="30,5" Content="Back" VerticalAlignment="Top" Click="backButton_Click"/>
+        <TextBlock x:Name="addQuestionText" HorizontalAlignment="Right" Text="Add Question" FontSize="32" Margin="0,157,194,796" Width="307"/>
+        <Button x:Name="InsertTest" Content="Insert" HorizontalAlignment="Right" Margin="0,392,168,0" VerticalAlignment="Top" Height="55" Width="277" FontSize="22" Click="InsertTest_Click"/>
+        <TextBox x:Name="QuestionTextBox" HorizontalAlignment="Right" Margin="0,239,88,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="106" Width="375" FontSize="20"/>
+        <TextBlock x:Name="NamePlaceHolder" HorizontalAlignment="Right" Margin="0,239,458,0" TextWrapping="Wrap" Text="Vraag:" VerticalAlignment="Top" Height="51" Width="122" FontSize="32"/>
     </Grid>
 </Page>

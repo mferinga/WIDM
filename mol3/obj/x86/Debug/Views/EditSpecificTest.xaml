@@ -17,7 +17,7 @@
         <TextBlock x:ConnectionId='3' x:Name="testName" HorizontalAlignment="Center" Margin="0,70,0,0" TextWrapping="Wrap" Text="Test name = " VerticalAlignment="Top" Height="34" Width="376" FontSize="24" TextAlignment="Center"/>
 
         <RelativePanel>
-            <ListView x:ConnectionId='5' Name="TestList"
+            <ListView x:ConnectionId='9' Name="QuestionList"
                       SelectionMode="Single"
                       ScrollViewer.VerticalScrollBarVisibility="Auto"
                       ScrollViewer.IsVerticalRailEnabled="True"
@@ -37,28 +37,32 @@
                 </ListView.HeaderTemplate>
                 <ListView.ItemTemplate>
                     <DataTemplate                           >
-                        <StackPanel x:ConnectionId='9' Orientation="Horizontal">
-                            <TextBlock x:ConnectionId='10' Name="VraagId"
+                        <StackPanel x:ConnectionId='13' Orientation="Horizontal">
+                            <TextBlock x:ConnectionId='14' Name="VraagId"
                                                          
                                        Width="50"/>
-                            <TextBlock x:ConnectionId='11' Name="TestId"
+                            <TextBlock x:ConnectionId='15' Name="TestId"
                                                              
                                        Width="75"/>
-                            <TextBlock x:ConnectionId='12' Name="VraagTekst"
+                            <TextBlock x:ConnectionId='16' Name="VraagTekst"
                                                                  
                                        Width="300"/>
-                            <Button x:ConnectionId='13' x:Name="DelButton"
+                            <Button x:ConnectionId='17' x:Name="DelButton"
                                     Content="Delete"
                                                             />
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <TextBox x:ConnectionId='6' x:Name="checkDeleteInput" Margin="80,600,0,0" Width="250" HorizontalAlignment="Left" FontSize="20" PlaceholderText="type id to confirm delete" />
+            <TextBox x:ConnectionId='10' x:Name="checkDeleteInput" Margin="80,600,0,0" Width="250" HorizontalAlignment="Left" FontSize="20" PlaceholderText="type id to confirm delete" />
         </RelativePanel>
 
 
         <Button x:ConnectionId='4' x:Name="backButton" Margin="10,10,0,0" Padding="30,5" Content="Back" VerticalAlignment="Top"                         />
+        <TextBlock x:ConnectionId='5' x:Name="addQuestionText" HorizontalAlignment="Right" Text="Add Question" FontSize="32" Margin="0,157,194,796" Width="307"/>
+        <Button x:ConnectionId='6' x:Name="InsertTest" Content="Insert" HorizontalAlignment="Right" Margin="0,392,168,0" VerticalAlignment="Top" Height="55" Width="277" FontSize="22"                         />
+        <TextBox x:ConnectionId='7' x:Name="QuestionTextBox" HorizontalAlignment="Right" Margin="0,239,88,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="106" Width="375" FontSize="20"/>
+        <TextBlock x:ConnectionId='8' x:Name="NamePlaceHolder" HorizontalAlignment="Right" Margin="0,239,458,0" TextWrapping="Wrap" Text="Vraag:" VerticalAlignment="Top" Height="51" Width="122" FontSize="32"/>
     </Grid>
 </Page>
 

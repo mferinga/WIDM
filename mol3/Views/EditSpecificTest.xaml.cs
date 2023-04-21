@@ -15,16 +15,15 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Collections.ObjectModel;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace mol3.Views
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class EditSpecificTest : Page
     {
+        private Test _editedTest;
         public EditSpecificTest()
         {
             this.InitializeComponent();
@@ -32,36 +31,26 @@ namespace mol3.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Question question;
             if (e.Parameter is int && (int)e.Parameter > 0)
             {
                 int testId = (int)e.Parameter;
-                question = GetSpecificTest(((App.Current as App).ConnectionString), testId);
-                if (question != null)
+                _editedTest = GetSpecificTest(((App.Current as App).ConnectionString), testId);
+                if (_editedTest != null)
                 {
-                    this.testId.Text = "Test ID = " + question.testId;
-                    this.testName.Text = "Test Name = " + question.test.testnaam;
-                    TestList.ItemsSource = GetSpecificTest((App.Current as App).ConnectionString, testId);
+                    //assigning textboxes to the test which is edited at the moment, so the user can see which test is edited.
+                    this.testId.Text = "Test ID = " + _editedTest.id;
+                    this.testName.Text = "Test Name = " + _editedTest.testnaam;
+
+                    QuestionList.ItemsSource = GetQuestions((App.Current as App).ConnectionString, testId);
                 }
             }
         }
 
-        private void DeleteTest_Click(object sender, RoutedEventArgs e)
+        public Test GetSpecificTest(string connectionString, int testId)
         {
-            string testIdString = checkDeleteInput.Text;
-            bool isNumeric = int.TryParse(testIdString, out int testId);
-            if (isNumeric)
-            {
-                DeleteWidmQuestion(testId, ((App.Current as App).ConnectionString));
-                //TestList.ItemsSource = GetSpecificTest((App.Current as App).ConnectionString);
-            }
-        }
-
-        public Question GetSpecificTest(string connectionString, int testId)
-        {
-            const string GetTestQuery = "SELECT test.testnaam, vraag.id, test.id, vraag.vraagTekst FROM test FULL JOIN vraag ON test.id = vraag.testid WHERE test.id = @testId";
-            var question = new Question();
+            const string GetTestQuery = "SELECT id, testnaam FROM test WHERE id = @testId";
             var test = new Test();
+
             try
             {
                 using (var conn = new SqlConnection(connectionString))
@@ -77,15 +66,70 @@ namespace mol3.Views
                             {
                                 while (reader.Read())
                                 {
-                                    test.testnaam = reader.GetString(0);
-                                    question.testId = reader.GetInt32(2);
+                                    test.id = reader.GetInt32(0);
+                                    test.testnaam = reader.GetString(1);
                                 }
                             }
                         }
                     }
                 }
-                question.test = test;
-                return question;
+                return test;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine($"Exception: {eSql.Message}");
+            }
+            return null;
+        }
+
+        private void DeleteTest_Click(object sender, RoutedEventArgs e)
+        {
+            string testIdString = checkDeleteInput.Text;
+            bool isNumeric = int.TryParse(testIdString, out int testId);
+            if (isNumeric)
+            {
+                DeleteWidmQuestion(testId, ((App.Current as App).ConnectionString));
+                //TestList.ItemsSource = GetSpecificTest((App.Current as App).ConnectionString);
+            }
+        }
+
+        public ObservableCollection<Question> GetQuestions(string connectionString, int testId)
+        {
+            const string GetQuestionsQuery = "SELECT test.testnaam, vraag.id, test.id, vraag.vraagTekst FROM test FULL JOIN vraag ON test.id = vraag.testid WHERE test.id = @testId";
+            var questions = new ObservableCollection<Question>();
+            var test = new Test();
+            try
+            {
+                using (var conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        using (SqlCommand cmd = conn.CreateCommand())
+                        {
+                            cmd.Parameters.Add("@testId", SqlDbType.Int).Value = testId;
+                            cmd.CommandText = GetQuestionsQuery;
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    //make temp question attribute
+                                    var question = new Question();
+
+                                    //read values from reader
+                                    test.testnaam = reader.GetString(0);
+                                    question.id = reader.GetInt32(1);
+                                    question.testId = reader.GetInt32(2);
+                                    question.vraagTekst = reader.GetString(3);
+
+                                    question.test = test;
+                                    questions.Add(question);
+                                }
+                            }
+                        }
+                    }
+                }
+                return questions;
             }
             catch (Exception eSql)
             {
@@ -97,32 +141,53 @@ namespace mol3.Views
         public void DeleteWidmQuestion(int testId, string connectionString)
         {
             throw new NotImplementedException();
-            // string DeleteTestQuery = "delete from test where id = @testId";
-            // try
-            // {
-            //     using (var conn = new SqlConnection(connectionString))
-            //     {
-            //         conn.Open();
-            //         if (conn.State == System.Data.ConnectionState.Open)
-            //         {
-            //             using (SqlCommand cmd = conn.CreateCommand())
-            //             {
-            //                 cmd.Parameters.Add("@testId", SqlDbType.Int).Value = testId;
-            //                 cmd.CommandText = DeleteTestQuery;
-            //                 cmd.ExecuteNonQuery();
-            //             }
-            //         }
-            //     }
-            // }
-            // catch (Exception eSql)
-            // {
-            //     Debug.WriteLine($"Exception: {eSql.Message}");
-            // }
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(ViewTests));
+        }
+
+        private void InsertTest_Click(object sender, RoutedEventArgs e)
+        {
+            if (QuestionTextBox.Text.Trim() != "")
+            {
+                string conString = (App.Current as App).ConnectionString;
+                int testId = _editedTest.id;
+                string vraagTekst = QuestionTextBox.Text;
+                InsertQuestion(conString, testId, vraagTekst);
+                QuestionList.ItemsSource = GetQuestions((App.Current as App).ConnectionString, testId);
+            }
+        }
+
+        private void InsertQuestion(string connectionString, int testId, string vraagTesks)
+        {
+            string InsertQuery = "insert into vraag values(@testId, @vraagTekst)";
+            try
+            {
+                using (var conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        using (SqlCommand cmd = conn.CreateCommand())
+                        {
+                            cmd.Parameters.Add("@testId", SqlDbType.Int).Value = testId;
+                            cmd.Parameters.Add("@vraagTekst", SqlDbType.VarChar).Value = vraagTesks;
+                            cmd.CommandText = InsertQuery;
+                            cmd.ExecuteNonQuery(); 
+                            
+                            //clearing the textBox
+                            QuestionTextBox.Text = "";
+                        }
+                    }
+                }
+                
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine($"Exception: {eSql.Message}");
+            }
         }
     }
 }

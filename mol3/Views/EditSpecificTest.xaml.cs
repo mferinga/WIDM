@@ -98,7 +98,6 @@ namespace mol3.Views
         {
             const string GetQuestionsQuery = "SELECT test.testnaam, vraag.id, test.id, vraag.vraagTekst FROM test FULL JOIN vraag ON test.id = vraag.testid WHERE test.id = @testId";
             var questions = new ObservableCollection<Question>();
-            var test = new Test();
             try
             {
                 using (var conn = new SqlConnection(connectionString))
@@ -116,6 +115,7 @@ namespace mol3.Views
                                 {
                                     //make temp question attribute
                                     var question = new Question();
+                                    var test = new Test();
 
                                     //read values from reader
                                     test.testnaam = reader.GetString(0);
@@ -171,13 +171,23 @@ namespace mol3.Views
 
         private void InsertTest_Click(object sender, RoutedEventArgs e)
         {
-            if (QuestionTextBox.Text.Trim() != "")
+            if (QuestionTextBox.Text.Trim().Length > 0)
             {
                 string conString = (App.Current as App).ConnectionString;
                 int testId = _editedTest.id;
                 string vraagTekst = QuestionTextBox.Text;
                 InsertQuestion(conString, testId, vraagTekst);
-                QuestionList.ItemsSource = GetQuestions((App.Current as App).ConnectionString, testId);
+                QuestionList.ItemsSource = GetQuestions(conString, testId);
+            }
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            string EditTestString = EditTextBox.Text;
+            bool isNumeric = int.TryParse(EditTestString, out int vraagId);
+            if (isNumeric)
+            {
+                this.Frame.Navigate(typeof(AnswerView), vraagId);
             }
         }
 
@@ -211,14 +221,33 @@ namespace mol3.Views
             }
         }
 
-        private void EditButton_Click(object sender, RoutedEventArgs e)
+        private void onEnterPressDelete(object sender, KeyRoutedEventArgs e)
         {
-            string EditTestString = EditTextBox.Text;
-            bool isNumeric = int.TryParse(EditTestString, out int vraagId);
-            if (isNumeric)
+            if (e.Key == Windows.System.VirtualKey.Enter)
             {
-                this.Frame.Navigate(typeof(AnswerView), vraagId);
+                string vraagIdString = checkDeleteInput.Text;
+                bool isNumeric = int.TryParse(vraagIdString, out int vraagId);
+                if (isNumeric)
+                {
+                    DeleteWidmQuestion(vraagId, ((App.Current as App).ConnectionString));
+                    QuestionList.ItemsSource = GetQuestions((App.Current as App).ConnectionString, _editedTest.id);
+                    checkDeleteInput.Text = "";
+                }
             }
+        }
+
+        private void onEnterPressEdit(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                string EditTestString = EditTextBox.Text;
+                bool isNumeric = int.TryParse(EditTestString, out int vraagId);
+                if (isNumeric)
+                {
+                    this.Frame.Navigate(typeof(AnswerView), vraagId);
+                }
+            }
+
         }
     }
 }

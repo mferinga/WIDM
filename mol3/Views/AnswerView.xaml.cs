@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -33,9 +35,34 @@ namespace mol3.Views
             {
                 int vraagId = (int)e.Parameter;
                 _editedVraag = GetSpecificQuestion(((App.Current as App).ConnectionString), vraagId);
+                QuestionText.Text = _editedVraag.vraagTekst;
+                AnswerList.ItemsSource = getAllAnswers((App.Current as App).ConnectionString, _editedVraag.id);
             }
         }
 
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(EditSpecificTest), _editedVraag.testId);
+        }
+        private void DeleteTest_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        private void InsertAnswerButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (AnswerTextInput.Text.Trim().Length > 0)
+            {
+                int correct;
+                correct = AnswerCorrectCheckBox.IsChecked == true ? 1 : 0;
+                
+
+                string conString = (App.Current as App).ConnectionString;
+                string answerString = AnswerTextInput.Text;
+                int vraagId = _editedVraag.id;
+                InsertAnswer(conString, vraagId, answerString, correct);
+                AnswerList.ItemsSource = getAllAnswers(conString, vraagId);
+            }
+        }
         private Question GetSpecificQuestion(string connectionString, int vraagId)
         {
             const string getQuestionQuery = "select id, testid, vraagTekst from vraag where id = @vraagId";
@@ -72,5 +99,78 @@ namespace mol3.Views
             }
             return null;
         }
+        private ObservableCollection<Answer> getAllAnswers(string connectionString, int vraagId)
+        {
+            const string GetAnswersQuery = "select id, vraagId, antwoordTekst, correct from antwoord where vraagId = @vraagId";
+            var answers = new ObservableCollection<Answer>();
+            try
+            {
+                using (var conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        using (SqlCommand cmd = conn.CreateCommand())
+                        {
+                            cmd.Parameters.Add("@vraagId", SqlDbType.Int).Value = vraagId;
+                            cmd.CommandText = GetAnswersQuery;
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    Answer answer = new Answer();
+                                    answer.id = reader.GetInt32(0);
+                                    answer.vraagId = reader.GetInt32(1);
+                                    answer.antwoordTekst = reader.GetString(2);
+
+                                    //check value of bit and convert it to boolean
+                                    answer.correct = reader.GetBoolean(3);
+
+                                    answers.Add(answer);
+                                }
+                            }
+                        }
+                    }
+                }
+                return answers;
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine(eSql);
+            }
+            return null;
+        }
+
+        private void InsertAnswer(string connectionString, int vraagId, string antwoordTekst, int isCorrect)
+        {
+            const string InsertAnswerQuery = "insert into antwoord values(@vraagId, @antwoordTekst, @correct)";
+            try
+            {
+                using (var conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        using (SqlCommand cmd = conn.CreateCommand())
+                        {
+                            cmd.Parameters.Add("@vraagId", SqlDbType.Int).Value = vraagId;
+                            cmd.Parameters.Add("@antwoordTekst", SqlDbType.VarChar).Value = antwoordTekst;
+                            cmd.Parameters.Add("@correct", SqlDbType.Bit).Value = isCorrect;
+                            cmd.CommandText = InsertAnswerQuery;  
+                            cmd.ExecuteNonQuery();
+
+                            AnswerTextInput.Text = "";
+                            AnswerCorrectCheckBox.IsChecked = false;
+                        }
+                    }
+                }
+            }
+            catch (Exception eSql)
+            {
+                Debug.Write(eSql);
+            }
+        }
+
+        
     }
 }

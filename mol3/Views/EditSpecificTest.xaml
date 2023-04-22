@@ -54,7 +54,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <TextBox x:Name="checkDeleteInput" Margin="80,600,0,0" Width="250" HorizontalAlignment="Left" FontSize="20" PlaceholderText="type id to confirm delete" />
+            <TextBox x:Name="checkDeleteInput" Margin="80,600,0,0" Width="250" HorizontalAlignment="Left" FontSize="20" PlaceholderText="type id to confirm delete" KeyDown="onEnterPressDelete"/>
         </RelativePanel>
 
 
@@ -64,7 +64,7 @@
         <TextBox x:Name="QuestionTextBox" HorizontalAlignment="Right" Margin="0,239,88,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="106" Width="375" FontSize="20"/>
         <TextBlock x:Name="NamePlaceHolder" HorizontalAlignment="Right" Margin="0,239,458,0" TextWrapping="Wrap" Text="Vraag:" VerticalAlignment="Top" Height="51" Width="122" FontSize="32"/>
 
-        <TextBox x:Name="EditTextBox" HorizontalAlignment="Left" Margin="82,730,0,0" PlaceholderText="Type Id to edit" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="173" Height="42" FontSize="24"/>
+        <TextBox x:Name="EditTextBox" HorizontalAlignment="Left" Margin="82,730,0,0" PlaceholderText="Type Id to edit" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="173" Height="42" FontSize="24" KeyDown="onEnterPressEdit"/>
         <Button x:Name="EditButton" Margin="260,730,0,0" VerticalAlignment="Top" Height="42" Width="70" Content="Edit" FontSize="24" Click="EditButton_Click"/>
     </Grid>
 </Page>

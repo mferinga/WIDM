@@ -50,6 +50,21 @@ namespace mol3
             }
         }
 
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            string EditTestString = EditTextBox.Text;
+            bool isNumeric = int.TryParse(EditTestString, out int testId);
+            if (isNumeric)
+            {
+                this.Frame.Navigate(typeof(EditSpecificTest), testId);
+            }
+        }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(AdminView));
+        }
+
         public ObservableCollection<Test> GetTests(string connectionString)
         {
             const string GetTestQuery = "select id, testnaam from test";
@@ -142,18 +157,31 @@ namespace mol3
             }
         }
 
-        private void backButton_Click(object sender, RoutedEventArgs e)
+        private void onEnterPressDelete(object sender, KeyRoutedEventArgs e)
         {
-            this.Frame.Navigate(typeof(AdminView));
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                string testIdString = checkDeleteInput.Text;
+                bool isNumeric = int.TryParse(testIdString, out int testId);
+                if (isNumeric)
+                {
+                    DeleteWidmTest(testId, ((App.Current as App).ConnectionString));
+                    TestList.ItemsSource = GetTests((App.Current as App).ConnectionString);
+                    checkDeleteInput.Text = "";
+                }
+            }
         }
 
-        private void EditButton_Click(object sender, RoutedEventArgs e)
+        private void onEnterPressEdit(object sender, KeyRoutedEventArgs e)
         {
-            string EditTestString = EditTextBox.Text;
-            bool isNumeric = int.TryParse(EditTestString, out int testId);
-            if (isNumeric)
+            if (e.Key == Windows.System.VirtualKey.Enter)
             {
-                this.Frame.Navigate(typeof(EditSpecificTest), testId);
+                string EditTestString = EditTextBox.Text;
+                bool isNumeric = int.TryParse(EditTestString, out int testId);
+                if (isNumeric)
+                {
+                    this.Frame.Navigate(typeof(EditSpecificTest), testId);
+                }
             }
         }
     }

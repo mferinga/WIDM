@@ -85,3 +85,8 @@ C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\EditSpecificTest.g.i.cs
 C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\EditSpecificTest.g.cs
 C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\EditSpecificTest.xaml
 C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\EditSpecificTest.xbf
+C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\AnswerView.xbf
+C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\AnswerView.g.i.cs
+C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\AnswerView.g.cs
+C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\AnswerView.xaml
+C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\AnswerView.xbf

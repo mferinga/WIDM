@@ -46,6 +46,7 @@ namespace mol3
             {
                 DeleteWidmTest(testId, ((App.Current as App).ConnectionString));
                 TestList.ItemsSource = GetTests((App.Current as App).ConnectionString);
+                checkDeleteInput.Text = "";
             }
         }
 
@@ -114,6 +115,8 @@ namespace mol3
 
         public void DeleteWidmTest(int testId, string connectionString)
         {
+            //Because the test and question tables are related the questions need to be deleted as well
+            string DeleteQuestionsQuery = "DELETE FROM vraag WHERE testid = @testId";
             string DeleteTestQuery = "delete from test where id = @testId";
             try
             {
@@ -125,6 +128,8 @@ namespace mol3
                         using (SqlCommand cmd = conn.CreateCommand())
                         {
                             cmd.Parameters.Add("@testId", SqlDbType.Int).Value = testId;
+                            cmd.CommandText = DeleteQuestionsQuery;
+                            cmd.ExecuteNonQuery();
                             cmd.CommandText = DeleteTestQuery;
                             cmd.ExecuteNonQuery();
                         }
@@ -146,7 +151,10 @@ namespace mol3
         {
             string EditTestString = EditTextBox.Text;
             bool isNumeric = int.TryParse(EditTestString, out int testId);
-            this.Frame.Navigate(typeof(EditSpecificTest), testId);
+            if (isNumeric)
+            {
+                this.Frame.Navigate(typeof(EditSpecificTest), testId);
+            }
         }
     }
 }

@@ -84,12 +84,13 @@ namespace mol3.Views
 
         private void DeleteTest_Click(object sender, RoutedEventArgs e)
         {
-            string testIdString = checkDeleteInput.Text;
-            bool isNumeric = int.TryParse(testIdString, out int testId);
+            string vraagIdString = checkDeleteInput.Text;
+            bool isNumeric = int.TryParse(vraagIdString, out int vraagId);
             if (isNumeric)
             {
-                DeleteWidmQuestion(testId, ((App.Current as App).ConnectionString));
-                //TestList.ItemsSource = GetSpecificTest((App.Current as App).ConnectionString);
+                DeleteWidmQuestion(vraagId, ((App.Current as App).ConnectionString));
+                QuestionList.ItemsSource = GetQuestions((App.Current as App).ConnectionString, _editedTest.id);
+                checkDeleteInput.Text = "";
             }
         }
 
@@ -138,9 +139,29 @@ namespace mol3.Views
             return null;
         }
 
-        public void DeleteWidmQuestion(int testId, string connectionString)
+        public void DeleteWidmQuestion(int vraagId, string connectionString)
         {
-            throw new NotImplementedException();
+            string DeleteTestQuery = "delete from vraag where id = @vraagId";
+            try
+            {
+                using (var conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    if (conn.State == System.Data.ConnectionState.Open)
+                    {
+                        using (SqlCommand cmd = conn.CreateCommand())
+                        {
+                            cmd.Parameters.Add("@vraagId", SqlDbType.Int).Value = vraagId;
+                            cmd.CommandText = DeleteTestQuery;
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                }
+            }
+            catch (Exception eSql)
+            {
+                Debug.WriteLine($"Exception: {eSql.Message}");
+            }
         }
 
         private void backButton_Click(object sender, RoutedEventArgs e)
@@ -187,6 +208,16 @@ namespace mol3.Views
             catch (Exception eSql)
             {
                 Debug.WriteLine($"Exception: {eSql.Message}");
+            }
+        }
+
+        private void EditButton_Click(object sender, RoutedEventArgs e)
+        {
+            string EditTestString = EditTextBox.Text;
+            bool isNumeric = int.TryParse(EditTestString, out int vraagId);
+            if (isNumeric)
+            {
+                this.Frame.Navigate(typeof(AnswerView), vraagId);
             }
         }
     }

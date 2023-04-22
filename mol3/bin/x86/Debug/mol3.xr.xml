@@ -29,6 +29,7 @@
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="mol3.Views.AdminView" />
+    <RootType FullName="mol3.Views.AnswerView" />
     <RootType FullName="Windows.UI.Xaml.Controls.TextBlock">
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Margin" />

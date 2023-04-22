@@ -141,7 +141,8 @@ namespace mol3.Views
 
         public void DeleteWidmQuestion(int vraagId, string connectionString)
         {
-            string DeleteTestQuery = "delete from vraag where id = @vraagId";
+            const string DeleteQuestionQuery = "delete from vraag where id = @vraagId";
+            const string DeleteAllAnswers = "delete from antwoord where vraagId = @vraagId";
             try
             {
                 using (var conn = new SqlConnection(connectionString))
@@ -152,7 +153,9 @@ namespace mol3.Views
                         using (SqlCommand cmd = conn.CreateCommand())
                         {
                             cmd.Parameters.Add("@vraagId", SqlDbType.Int).Value = vraagId;
-                            cmd.CommandText = DeleteTestQuery;
+                            cmd.CommandText = DeleteAllAnswers;
+                            cmd.ExecuteNonQuery();
+                            cmd.CommandText = DeleteQuestionQuery;
                             cmd.ExecuteNonQuery();
                         }
                     }

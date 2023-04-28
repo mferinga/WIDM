@@ -5,6 +5,7 @@
     xmlns:local="using:mol3.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:mol3="using:mol3"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -12,5 +13,58 @@
         <Grid.Background>
             <ImageBrush ImageSource="../Assets/img/widm_background.jpg" Opacity="0.4"></ImageBrush>
         </Grid.Background>
+        <RelativePanel>
+            <ListView Name="PersonList"
+                      SelectionMode="Single"
+                      ScrollViewer.VerticalScrollBarVisibility="Auto"
+                      ScrollViewer.IsVerticalRailEnabled="True"
+                      ScrollViewer.VerticalScrollMode="Enabled"
+                      ScrollViewer.HorizontalScrollMode="Enabled"
+                      ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                      ScrollViewer.IsHorizontalRailEnabled="True"
+                      Margin="90, 160, 20, 20">
+                <ListView.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="id" Margin="8,0" Width="50" Foreground="Gray"/>
+                            <TextBlock Text="naam" Width="200" Foreground="Gray"/>
+                            <TextBlock Text="isMol" Width="50" Foreground="Gray"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.HeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="mol3:Person">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Name="PersonId"
+                                       Text="{x:Bind Id}"
+                                       Width="50"/>
+                            <TextBlock Name="PersonNaam"
+                                       Text="{x:Bind Name}"
+                                       Width="200"/>
+                            <TextBlock Name="PersonIsMol"
+                                       Text="{x:Bind isMol}"
+                                       Width="50"/>
+                            <Button x:Name="DelButton" 
+                                    Content="Delete"
+                                    Click="DeleteTest_Click"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <TextBox x:Name="checkDeleteInput" Margin="80,600,0,0" Width="250" HorizontalAlignment="Left" FontSize="20" PlaceholderText="type id to confirm delete" KeyDown="onEnterPressDelete"/>
+
+            <TextBlock x:Name="AddPerson" Text="Add Person" Margin="1000,170,0,0" FontSize="32" Width="176" RenderTransformOrigin="0.176,-1.174"/>
+
+            <TextBlock x:Name="NamePlaceHolder" Margin="800 250 0 0"  Text="Name:" FontSize="32" RenderTransformOrigin="-0.118,0.565"/>
+            <TextBox x:Name="PersonName" PlaceholderText="Type the persons name here..." FontSize="20" Margin="950,250,0,0" Width="437" Height="90"/>
+
+            <TextBlock x:Name="PersonIsMolLabel" Text="Is Mol:" FontSize="32" Margin="800,372,0,0" RenderTransformOrigin="0.004,0.513"/>
+            <CheckBox x:Name="PersonIsMolCheckBox" Content="True/ False" FontSize="20" Margin="950,380,0,0"/>
+
+            <Button x:Name="InsertPerson" Content="Insert" Margin="950,456,0,0" VerticalAlignment="Top" Height="55" Width="277" FontSize="22" Click="InsertPerson_OnClick"/>
+        </RelativePanel>
+
+        <Button x:Name="backButton" Margin="10,10,0,0" Padding="30,5" Content="Back" VerticalAlignment="Top" Click="BackButton_OnClick"/>
+
     </Grid>
 </Page>

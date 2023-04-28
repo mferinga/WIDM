@@ -42,7 +42,7 @@ namespace mol3.Views
 
         private void AddMember_OnClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            this.Frame.Navigate(typeof(PersonView));
         }
 
         private void ViewResults_OnClick(object sender, RoutedEventArgs e)

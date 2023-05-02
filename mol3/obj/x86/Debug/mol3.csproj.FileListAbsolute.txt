@@ -90,3 +90,8 @@ C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\AnswerView.g.i.cs
 C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\AnswerView.g.cs
 C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\AnswerView.xaml
 C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\AnswerView.xbf
+C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\MakeTestView.xbf
+C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\MakeTestView.g.i.cs
+C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\MakeTestView.g.cs
+C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\MakeTestView.xaml
+C:\hobbyProjects\mol3\mol3\mol3\obj\x86\Debug\Views\MakeTestView.xbf

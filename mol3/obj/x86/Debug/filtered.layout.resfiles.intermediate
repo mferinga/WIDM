@@ -14,6 +14,7 @@ Views\AdminView.xbf
 Views\AnswerView.xbf
 Views\EditSpecificTest.xbf
 Views\HomeView.xbf
+Views\MakeTestView.xbf
 Views\PersonView.xbf
 Views\ViewTests.xbf
 Properties\Default.rd.xml

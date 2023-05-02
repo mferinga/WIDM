@@ -96,7 +96,7 @@ namespace mol3.Views
 
         public ObservableCollection<Question> GetQuestions(string connectionString, int testId)
         {
-            const string GetQuestionsQuery = "SELECT test.testnaam, vraag.id, test.id, vraag.vraagTekst FROM test FULL JOIN vraag ON test.id = vraag.testid WHERE test.id = @testId";
+            const string getQuestionsQuery = "SELECT test.testnaam, vraag.id, test.id, vraag.vraagTekst FROM test FULL JOIN vraag ON test.id = vraag.testid WHERE test.id = @testId";
             var questions = new ObservableCollection<Question>();
             try
             {
@@ -108,7 +108,7 @@ namespace mol3.Views
                         using (SqlCommand cmd = conn.CreateCommand())
                         {
                             cmd.Parameters.Add("@testId", SqlDbType.Int).Value = testId;
-                            cmd.CommandText = GetQuestionsQuery;
+                            cmd.CommandText = getQuestionsQuery;
                             using (SqlDataReader reader = cmd.ExecuteReader())
                             {
                                 while (reader.Read())

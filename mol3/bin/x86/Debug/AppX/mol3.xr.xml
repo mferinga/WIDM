@@ -97,6 +97,7 @@
     <RootType FullName="mol3.Views.AnswerView" />
     <RootType FullName="mol3.Views.EditSpecificTest" />
     <RootType FullName="mol3.Views.HomeView" />
+    <RootType FullName="mol3.Views.MakeTestView" />
     <RootType FullName="mol3.Views.PersonView" />
     <RootType FullName="mol3.ViewTests" />
   </Roots.RootTypes>

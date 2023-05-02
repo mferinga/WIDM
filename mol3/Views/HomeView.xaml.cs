@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -20,6 +22,7 @@ namespace mol3.Views
 {
     public sealed partial class HomeView : Page
     {
+        private string _connectionString = (App.Current as App).ConnectionString;
         public HomeView()
         {
             this.InitializeComponent();
@@ -27,9 +30,44 @@ namespace mol3.Views
 
         private void getName(object sender, RoutedEventArgs e, string name)
         {
+            List<string> nameList = new List<string>();
             if (name == "admin")
             {
                 this.Frame.Navigate(typeof(AdminView));
+            }
+            else
+            {
+                const string getNamesQuery = "SELECT naam from kanidaat";
+                try
+                {
+                    using (var conn = new SqlConnection(_connectionString))
+                    {
+                        conn.Open();
+                        if (conn.State == System.Data.ConnectionState.Open)
+                        {
+                            using (SqlCommand cmd = conn.CreateCommand())
+                            {
+                                cmd.CommandText = getNamesQuery;
+                                using (SqlDataReader reader = cmd.ExecuteReader())
+                                {
+                                    while (reader.Read())
+                                    {
+                                        nameList.Add(reader.GetString(0));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                catch(Exception eSql)
+                {
+                    Debug.WriteLine($"Exception: {eSql.Message}");
+                }
+
+                if (nameList.Contains(name))
+                {
+                    this.Frame.Navigate(typeof(MakeTestView), name);
+                }
             }
         }
 

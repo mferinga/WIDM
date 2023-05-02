@@ -163,7 +163,5 @@ namespace mol3.Views
                 }
             }
         }
-
-
     }
 }

@@ -29,9 +29,8 @@ namespace mol3.Views
         public PersonView()
         {
             this.InitializeComponent();
+            PersonList.ItemsSource = GetPersons(_connectionString);
         }
-
-        
         private void DeleteTest_Click(object sender, RoutedEventArgs e)
         {
             string personIdString = checkDeleteInput.Text;

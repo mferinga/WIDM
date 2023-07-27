@@ -78,6 +78,7 @@
       <RootProperty Name="TextWrapping" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="TextAlignment" />
+      <RootProperty Name="LineHeight" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.CheckBox">
       <RootProperty Name="Content" />
@@ -97,6 +98,14 @@
     <RootType FullName="mol3.Views.AnswerView" />
     <RootType FullName="mol3.Views.EditSpecificTest" />
     <RootType FullName="mol3.Views.HomeView" />
+    <RootType FullName="Windows.UI.Xaml.Controls.RadioButton">
+      <RootProperty Name="Content" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Padding" />
+      <RootProperty Name="UseLayoutRounding" />
+      <RootProperty Name="IsChecked" />
+    </RootType>
     <RootType FullName="mol3.Views.MakeTestView" />
     <RootType FullName="mol3.Views.PersonView" />
     <RootType FullName="mol3.ViewTests" />

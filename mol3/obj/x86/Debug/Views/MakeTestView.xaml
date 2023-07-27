@@ -9,7 +9,11 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <TextBlock x:ConnectionId='2' x:Name="TestPersonDisplay" HorizontalAlignment="Left" FontSize="50" Margin="343,160,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="106" Width="1179"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="../Assets/img/widm_background.jpg" Opacity="0.4"></ImageBrush>
+        </Grid.Background>
+        <TextBlock x:ConnectionId='2' x:Name="TestPersonDisplay" FontSize="50" Margin="0,80,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="160" Width="1179" HorizontalAlignment="Center" TextAlignment="Center" LineHeight="6"/>
+        <RadioButton x:ConnectionId='3' x:Name="Option1" Content="RadioButton" Margin="240,380,0,0" VerticalAlignment="Top" Padding="8,6,0,0" UseLayoutRounding="False" IsChecked="False"/>
 
     </Grid>
 </Page>

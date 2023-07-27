@@ -43,7 +43,8 @@ namespace mol3.Views
                 string nameTestPerson = (string)e.Parameter;
                 _testPerson = getListsAndPerson(nameTestPerson);
                 getTestVragen();
-                TestPersonDisplay.Text = "Id = " + _testPerson.Id + ", Naam = " + _testPerson.Name + ", is de mol: " + _testPerson.isMol;
+                TestPersonDisplay.Text = _vragenList[0].vraagTekst;
+                
             }
         }
 

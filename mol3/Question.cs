@@ -13,6 +13,7 @@ namespace mol3
         public int id { get; set; }
         public int testId { get; set; }
         public string vraagTekst { get; set; }
+        public List<Answer> answers { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         private void NotifyPropertyChanged(string propertyName)

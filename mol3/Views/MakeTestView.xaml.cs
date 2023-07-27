@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Xml.Linq;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,6 +26,8 @@ namespace mol3.Views
 
         private Person _testPerson;
         private string _connectionString = (App.Current as App).ConnectionString;
+        private List<KanidaatVraag> _kanidaatVragen = new List<KanidaatVraag>();
+        private int? _lastMadeTest;
         public MakeTestView()
         {
             this.InitializeComponent();
@@ -35,18 +38,21 @@ namespace mol3.Views
             if (e.Parameter is string)
             {
                 string nameTestPerson = (string)e.Parameter;
-                _testPerson = getTestPerson(nameTestPerson, _connectionString);
-                TestPersonDisplay.Text = "Id = " + _testPerson.Id + ", Naam = " + _testPerson.Name + ", is de mol: " + _testPerson.isMol;
+                _testPerson = getListsAndPerson(nameTestPerson);
+                TestPersonDisplay.Text = "Id = " + _testPerson.Id + ", Naam = " + _testPerson.Name + ", is de mol: " + _testPerson.isMol + ", " + _kanidaatVragen.Count;
             }
         }
 
-        private Person getTestPerson(string name, string connectionString)
+        private Person getListsAndPerson(string name)
         {
             Person person = new Person();
             const string getTestPersonQuery = "SELECT id, naam, ismol FROM kanidaat WHERE naam = @personsName";
+            const string getKanidaatVraag = "SELECT kanidaatid, vraagid, antwoordid, testid FROM kanidaatvraag";
+            const string getLastMadeTest = "SELECT MAX(testid) AS lastTest FROM kanidaatvraag LEFT JOIN kanidaat ON kanidaatvraag.kanidaatid = kanidaat.id WHERE kanidaat.naam = @personsName";
+
             try
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
+                using (SqlConnection conn = new SqlConnection(_connectionString))
                 {
                     conn.Open();
                     if (conn.State == System.Data.ConnectionState.Open)
@@ -64,14 +70,48 @@ namespace mol3.Views
                                     person.isMol = reader.GetBoolean(2);
                                 }
                             }
+                            cmd.CommandText = getKanidaatVraag;
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    var kanidaatVraag = new KanidaatVraag();
+                                    kanidaatVraag.kanidaatId = reader.GetInt32(0);
+                                    kanidaatVraag.vraagId = reader.GetInt32(1);
+                                    kanidaatVraag.antwoordId = reader.GetInt32(2);
+                                    kanidaatVraag.testId = reader.GetInt32(3);
+                                    _kanidaatVragen.Add(kanidaatVraag);
+                                }
+                            }
+                            cmd.CommandText = getLastMadeTest;
+                            using (SqlDataReader reader = cmd.ExecuteReader())
+                            {
+                                int lastTest = reader.GetOrdinal("lastTest");
+                                while (reader.Read())
+                                {
+                                    _lastMadeTest = reader.IsDBNull(lastTest) ? (int?)null : reader.GetInt32(0);
+                                }
+                            }
+
                         }
                     }
                 }
+
                 return person;
             }
             catch (Exception eSql)
             {
                 Debug.WriteLine(eSql);
+            }
+
+            return null;
+        }
+
+        private Test getTestVragen()
+        {
+            if (_lastMadeTest == null)
+            {
+
             }
             return null;
         }

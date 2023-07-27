@@ -52,7 +52,7 @@ namespace mol3.Views
                                 {
                                     while (reader.Read())
                                     {
-                                        nameList.Add(reader.GetString(0));
+                                        nameList.Add(reader.GetString(0).ToLower());
                                     }
                                 }
                             }
@@ -64,7 +64,7 @@ namespace mol3.Views
                     Debug.WriteLine($"Exception: {eSql.Message}");
                 }
 
-                if (nameList.Contains(name))
+                if (nameList.Contains(name.ToLower()))
                 {
                     this.Frame.Navigate(typeof(MakeTestView), name);
                 }

@@ -19,7 +19,7 @@
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
     <LayoutDir>C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\AppX</LayoutDir>
-    <RegisteredManifestChecksum>01997B6560D27A3B9CE3935D6F9C1168E56A6AD30D272465DE223B07CCD32E89</RegisteredManifestChecksum>
+    <RegisteredManifestChecksum>63118FD759FB192375AD127CCB9B674744CFA405508C928BE784DA93A9077AA2</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>a53801c3-bfcf-4e3c-9fa7-05edf2d6a21a_1.0.0.0_x86__f6s3q6fqr0004</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>a53801c3-bfcf-4e3c-9fa7-05edf2d6a21a_f6s3q6fqr0004!App</RegisteredUserModeAppID>
     <RegisteredPackageID>a53801c3-bfcf-4e3c-9fa7-05edf2d6a21a</RegisteredPackageID>
@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-07-19T08:55:18.406</Modified>
+      <Modified>2023-07-24T10:01:39.352</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\mol3.exe">
       <PackagePath>entrypoint\mol3.exe</PackagePath>
-      <Modified>2023-07-19T08:55:17.755</Modified>
+      <Modified>2023-07-24T10:01:38.429</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\matth\.nuget\packages\google.protobuf\3.21.9\lib\netstandard2.0\Google.Protobuf.dll">
       <PackagePath>Google.Protobuf.dll</PackagePath>
@@ -142,39 +142,39 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2023-07-19T08:55:17.657</Modified>
+      <Modified>2023-07-24T10:01:38.292</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2023-07-19T08:55:17.658</Modified>
+      <Modified>2023-07-24T10:01:38.292</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\AdminView.xbf">
       <PackagePath>Views\AdminView.xbf</PackagePath>
-      <Modified>2023-07-19T08:55:17.658</Modified>
+      <Modified>2023-07-24T10:01:38.292</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\AnswerView.xbf">
       <PackagePath>Views\AnswerView.xbf</PackagePath>
-      <Modified>2023-07-19T08:55:17.658</Modified>
+      <Modified>2023-07-24T10:01:38.292</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\EditSpecificTest.xbf">
       <PackagePath>Views\EditSpecificTest.xbf</PackagePath>
-      <Modified>2023-07-19T08:55:17.658</Modified>
+      <Modified>2023-07-24T10:01:38.293</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\HomeView.xbf">
       <PackagePath>Views\HomeView.xbf</PackagePath>
-      <Modified>2023-07-19T08:55:17.658</Modified>
+      <Modified>2023-07-24T10:01:38.293</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\MakeTestView.xbf">
       <PackagePath>Views\MakeTestView.xbf</PackagePath>
-      <Modified>2023-07-19T08:55:17.658</Modified>
+      <Modified>2023-07-24T10:01:38.293</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\PersonView.xbf">
       <PackagePath>Views\PersonView.xbf</PackagePath>
-      <Modified>2023-07-19T08:55:17.659</Modified>
+      <Modified>2023-07-24T10:01:38.294</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\ViewTests.xbf">
       <PackagePath>Views\ViewTests.xbf</PackagePath>
-      <Modified>2023-07-19T08:55:17.659</Modified>
+      <Modified>2023-07-24T10:01:38.294</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.22621.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -182,11 +182,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-05-02T10:33:10.512</Modified>
+      <Modified>2023-07-23T16:35:01.951</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Core\mol3.exe">
       <PackagePath>mol3.exe</PackagePath>
-      <Modified>2023-07-19T08:55:18.403</Modified>
+      <Modified>2023-07-24T10:01:39.346</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

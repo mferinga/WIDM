@@ -66,7 +66,10 @@ namespace mol3.Views
 
                 if (nameList.Contains(name.ToLower()))
                 {
-                    this.Frame.Navigate(typeof(MakeTestView), name);
+                    Payload payload = new Payload();
+                    payload.item1 = name;
+                    payload.item2 = 0;
+                    this.Frame.Navigate(typeof(MakeTestView), payload);
                 }
             }
         }

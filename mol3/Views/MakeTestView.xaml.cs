@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -27,6 +28,7 @@ namespace mol3.Views
         private Person _testPerson;
         private string _connectionString = (App.Current as App).ConnectionString;
         private int? _lastMadeTest;
+        private int currentQuestion;
 
         private Test _currentTest;
         private List<Question> _vragenList = new List<Question>();
@@ -38,13 +40,45 @@ namespace mol3.Views
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            if (e.Parameter is string)
+            if (e.Parameter is Payload)
             {
-                string nameTestPerson = (string)e.Parameter;
+                Payload payload = (Payload)e.Parameter;
+                string nameTestPerson = payload.item1;
+                currentQuestion = payload.item2;
                 _testPerson = getListsAndPerson(nameTestPerson);
                 getTestVragen();
-                TestPersonDisplay.Text = _vragenList[0].vraagTekst;
+                QuestionText.Text = _vragenList[currentQuestion].vraagTekst;
+                LoadAnswers();
                 
+            }
+        }
+
+        private void LoadAnswers()
+        {
+            int i = 0;
+            foreach(Answer a in _vragenList[currentQuestion].answers)
+            {
+                //Image img = new Image();
+                //img.Name = $"answerOption{i}";
+                //BitmapImage bitmapImage = new BitmapImage();
+                //img.Width = bitmapImage.DecodePixelWidth = 80; 
+                //bitmapImage.UriSource = new Uri(img.BaseUri, "../Assets/img/button_img.jpg");
+                //img.Source = bitmapImage;
+
+                Image img = new Image();
+                img.Source = new BitmapImage(new Uri("ms-appx:///Assets/img/button_img.png"));
+                img.Width = 65;
+                this.gridpanel.Children.Add(img);
+
+                TextBlock textBlock = new TextBlock();
+                textBlock.Text = a.antwoordTekst;
+                textBlock.FontSize = 26;
+                textBlock.Width = 100;
+                textBlock.Height = 100;
+                textBlock.Name = $"answer{i}";
+                
+                this.gridpanel.Children.Add(textBlock);
+                break;
             }
         }
 
@@ -209,5 +243,7 @@ namespace mol3.Views
 
             return null;
         }
+
+
     }
 }

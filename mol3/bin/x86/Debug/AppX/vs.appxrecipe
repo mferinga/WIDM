@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-07-27T20:21:46.920</Modified>
+      <Modified>2023-09-07T14:10:22.825</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\mol3.exe">
       <PackagePath>entrypoint\mol3.exe</PackagePath>
-      <Modified>2023-07-27T20:21:46.009</Modified>
+      <Modified>2023-09-07T14:10:22.083</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\matth\.nuget\packages\google.protobuf\3.21.9\lib\netstandard2.0\Google.Protobuf.dll">
       <PackagePath>Google.Protobuf.dll</PackagePath>
@@ -90,6 +90,10 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2022-10-19T13:28:50.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\Assets\img\button_img.png">
+      <PackagePath>Assets\img\button_img.png</PackagePath>
+      <Modified>2023-09-07T11:25:59.278</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\Assets\img\black-close-icon-3.png">
       <PackagePath>Assets\img\black-close-icon-3.png</PackagePath>
       <Modified>2023-03-23T19:01:32.285</Modified>
@@ -128,6 +132,10 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2023-03-22T17:19:21.983</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\Assets\img\aButton.gif">
+      <PackagePath>Assets\img\aButton.gif</PackagePath>
+      <Modified>2023-09-07T11:26:12.957</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\Assets\img\widm_background.jpg">
       <PackagePath>Assets\img\widm_background.jpg</PackagePath>
       <Modified>2023-03-22T18:02:07.096</Modified>
@@ -138,43 +146,43 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\mol3.xr.xml">
       <PackagePath>mol3.xr.xml</PackagePath>
-      <Modified>2023-07-27T20:21:45.884</Modified>
+      <Modified>2023-09-07T13:05:03.394</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2023-07-27T20:21:45.912</Modified>
+      <Modified>2023-09-07T14:10:21.999</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2023-07-27T20:21:45.913</Modified>
+      <Modified>2023-09-07T14:10:21.999</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\AdminView.xbf">
       <PackagePath>Views\AdminView.xbf</PackagePath>
-      <Modified>2023-07-27T20:21:45.913</Modified>
+      <Modified>2023-09-07T14:10:21.999</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\AnswerView.xbf">
       <PackagePath>Views\AnswerView.xbf</PackagePath>
-      <Modified>2023-07-27T20:21:45.913</Modified>
+      <Modified>2023-09-07T14:10:21.999</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\EditSpecificTest.xbf">
       <PackagePath>Views\EditSpecificTest.xbf</PackagePath>
-      <Modified>2023-07-27T20:21:45.913</Modified>
+      <Modified>2023-09-07T14:10:21.999</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\HomeView.xbf">
       <PackagePath>Views\HomeView.xbf</PackagePath>
-      <Modified>2023-07-27T20:21:45.913</Modified>
+      <Modified>2023-09-07T14:10:22.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\MakeTestView.xbf">
       <PackagePath>Views\MakeTestView.xbf</PackagePath>
-      <Modified>2023-07-27T20:21:45.914</Modified>
+      <Modified>2023-09-07T14:10:22.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\PersonView.xbf">
       <PackagePath>Views\PersonView.xbf</PackagePath>
-      <Modified>2023-07-27T20:21:45.914</Modified>
+      <Modified>2023-09-07T14:10:22.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Views\ViewTests.xbf">
       <PackagePath>Views\ViewTests.xbf</PackagePath>
-      <Modified>2023-07-27T20:21:45.914</Modified>
+      <Modified>2023-09-07T14:10:22.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.22621.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -182,11 +190,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-07-27T15:23:05.350</Modified>
+      <Modified>2023-09-07T14:10:22.333</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\hobbyProjects\mol3\mol3\mol3\bin\x86\Debug\Core\mol3.exe">
       <PackagePath>mol3.exe</PackagePath>
-      <Modified>2023-07-27T20:21:46.913</Modified>
+      <Modified>2023-09-07T14:10:22.823</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

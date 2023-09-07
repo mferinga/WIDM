@@ -58,16 +58,15 @@ namespace mol3.Views
             int i = 0;
             foreach(Answer a in _vragenList[currentQuestion].answers)
             {
-                //Image img = new Image();
-                //img.Name = $"answerOption{i}";
-                //BitmapImage bitmapImage = new BitmapImage();
-                //img.Width = bitmapImage.DecodePixelWidth = 80; 
-                //bitmapImage.UriSource = new Uri(img.BaseUri, "../Assets/img/button_img.jpg");
-                //img.Source = bitmapImage;
-
                 Image img = new Image();
                 img.Source = new BitmapImage(new Uri("ms-appx:///Assets/img/button_img.png"));
                 img.Width = 65;
+                img.HorizontalAlignment = HorizontalAlignment.Left;
+                img.VerticalAlignment = VerticalAlignment.Top;
+                Thickness marginImage = img.Margin;
+                marginImage.Top = 200 + (i * 85);
+                marginImage.Left = 75;
+                img.Margin = marginImage;
                 this.gridpanel.Children.Add(img);
 
                 TextBlock textBlock = new TextBlock();
@@ -75,10 +74,16 @@ namespace mol3.Views
                 textBlock.FontSize = 26;
                 textBlock.Width = 100;
                 textBlock.Height = 100;
+                textBlock.HorizontalAlignment = HorizontalAlignment.Left;
+                textBlock.VerticalAlignment = VerticalAlignment.Top;
+                Thickness marginText = textBlock.Margin;
+                marginText.Top = 215 + (i * 85);
+                marginText.Left = 175;
+                textBlock.Margin = marginText;
                 textBlock.Name = $"answer{i}";
                 
                 this.gridpanel.Children.Add(textBlock);
-                break;
+                i++;
             }
         }
 

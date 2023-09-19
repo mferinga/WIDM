@@ -29,9 +29,13 @@ namespace mol3.Views
         private string _connectionString = (App.Current as App).ConnectionString;
         private int? _lastMadeTest;
         private int currentQuestion;
+        private Uri _imagePath = new Uri("ms-appx:///Assets/img/button_img.png");
 
         private Test _currentTest;
         private List<Question> _vragenList = new List<Question>();
+        private List<Button> _buttonList = new List<Button>();
+
+        private string _selectedAnswer;
 
         public MakeTestView()
         {
@@ -58,16 +62,31 @@ namespace mol3.Views
             int i = 0;
             foreach(Answer a in _vragenList[currentQuestion].answers)
             {
-                Image img = new Image();
-                img.Source = new BitmapImage(new Uri("ms-appx:///Assets/img/button_img.png"));
-                img.Width = 65;
-                img.HorizontalAlignment = HorizontalAlignment.Left;
-                img.VerticalAlignment = VerticalAlignment.Top;
-                Thickness marginImage = img.Margin;
+                Button b = new Button();
+                b.Name = $"{a.antwoordTekst}";
+                b.Background = new SolidColorBrush(Windows.UI.Colors.Brown);
+                b.Padding = new Thickness(30, 30, 30, 30);
+                b.HorizontalAlignment = HorizontalAlignment.Left;
+                b.VerticalAlignment = VerticalAlignment.Top;
+                b.Click += ChooseAnswer;
+                Thickness marginImage = b.Margin;
                 marginImage.Top = 200 + (i * 85);
                 marginImage.Left = 75;
-                img.Margin = marginImage;
-                this.gridpanel.Children.Add(img);
+                b.Margin = marginImage;
+                this.gridpanel.Children.Add(b);
+                SaveButton(b);
+
+                CheckBox c = new CheckBox();
+                c.Name = $"checkbox{i}";
+                c.HorizontalAlignment = HorizontalAlignment.Left;
+                c.VerticalAlignment = VerticalAlignment.Top;
+                Thickness marginc = c.Margin;
+                marginc.Top = 200 + (i * 87.5);
+                marginc.Left = 77.5;
+                c.Margin = marginc;
+                c.Opacity = 0;
+                this.gridpanel.Children.Add(c);
+                
 
                 TextBlock textBlock = new TextBlock();
                 textBlock.Text = a.antwoordTekst;
@@ -85,6 +104,26 @@ namespace mol3.Views
                 this.gridpanel.Children.Add(textBlock);
                 i++;
             }
+        }
+
+        private void SaveButton(Button b)
+        {
+            _buttonList.Add(b);
+        }
+
+        private void ChooseAnswer(object sender, RoutedEventArgs e)
+        {
+            Button b = sender as Button;
+            if (b.Opacity != 0.5)
+            {
+                foreach(var c in _buttonList)
+                {
+                    if(c.Opacity == 0.5) c.Opacity = 1;
+
+                }
+            }
+            b.Opacity = 0.5;
+            this._selectedAnswer = b.Name;
         }
 
         private Person getListsAndPerson(string name)

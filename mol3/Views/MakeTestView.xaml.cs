@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Timers;
 using System.Xml.Linq;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -28,14 +29,17 @@ namespace mol3.Views
         private Person _testPerson;
         private string _connectionString = (App.Current as App).ConnectionString;
         private int? _lastMadeTest;
-        private int currentQuestion;
-        private Uri _imagePath = new Uri("ms-appx:///Assets/img/button_img.png");
+        private int _currentQuestion;
+        private readonly Uri _imagePath = new Uri("ms-appx:///Assets/img/button_img.png");
 
         private Test _currentTest;
         private List<Question> _vragenList = new List<Question>();
         private List<Button> _buttonList = new List<Button>();
+        private List<Answer> _answerList = new List<Answer>();
 
-        private string _selectedAnswer;
+        private Answer _selectedAnswer;
+        private Stopwatch _questionTimer = new Stopwatch();
+        private double _timeQuestion;
 
         public MakeTestView()
         {
@@ -48,19 +52,23 @@ namespace mol3.Views
             {
                 Payload payload = (Payload)e.Parameter;
                 string nameTestPerson = payload.item1;
-                currentQuestion = payload.item2;
+                _currentQuestion = payload.item2;
                 _testPerson = getListsAndPerson(nameTestPerson);
                 getTestVragen();
-                QuestionText.Text = _vragenList[currentQuestion].vraagTekst;
+                if(_currentQuestion == -1)
+                {
+                    _currentQuestion = _vragenList.First().id;
+                }
+                QuestionText.Text = _vragenList[_currentQuestion].vraagTekst;
                 LoadAnswers();
-                
+                StartTimer();
             }
         }
 
         private void LoadAnswers()
         {
             int i = 0;
-            foreach(Answer a in _vragenList[currentQuestion].answers)
+            foreach(Answer a in _answerList.Where(a => a.vraagId == _currentQuestion))
             {
                 Button b = new Button();
                 b.Name = $"{a.antwoordTekst}";
@@ -75,18 +83,6 @@ namespace mol3.Views
                 b.Margin = marginImage;
                 this.gridpanel.Children.Add(b);
                 SaveButton(b);
-
-                CheckBox c = new CheckBox();
-                c.Name = $"checkbox{i}";
-                c.HorizontalAlignment = HorizontalAlignment.Left;
-                c.VerticalAlignment = VerticalAlignment.Top;
-                Thickness marginc = c.Margin;
-                marginc.Top = 200 + (i * 87.5);
-                marginc.Left = 77.5;
-                c.Margin = marginc;
-                c.Opacity = 0;
-                this.gridpanel.Children.Add(c);
-                
 
                 TextBlock textBlock = new TextBlock();
                 textBlock.Text = a.antwoordTekst;
@@ -106,6 +102,18 @@ namespace mol3.Views
             }
         }
 
+        private void StartTimer()
+        {
+            _questionTimer.Start();
+        }
+
+        private void StopTimer()
+        {
+            _questionTimer.Stop();
+            TimeSpan ts = _questionTimer.Elapsed;
+            _timeQuestion = ts.TotalMilliseconds;
+        }
+
         private void SaveButton(Button b)
         {
             _buttonList.Add(b);
@@ -123,7 +131,7 @@ namespace mol3.Views
                 }
             }
             b.Opacity = 0.5;
-            this._selectedAnswer = b.Name;
+            this._selectedAnswer = this._answerList.First(answer => answer.antwoordTekst.Equals(b.Name));
         }
 
         private Person getListsAndPerson(string name)
@@ -184,7 +192,8 @@ namespace mol3.Views
                 for (int i = 0; i < _vragenList.Count; i++)
                 {
                     int vraagId = _vragenList[i].id;
-                    _vragenList[i].answers = getAnswersForQuestion(vraagId);
+                    getAnswersForQuestion(vraagId);
+                    _vragenList[i].answers = _answerList;
                 }
             }
             else
@@ -194,7 +203,8 @@ namespace mol3.Views
                 for (int i = 0; i < _vragenList.Count; i++)
                 {
                     int vraagId = _vragenList[i].id;
-                    _vragenList[i].answers = getAnswersForQuestion(vraagId);
+                    getAnswersForQuestion(vraagId);
+                    _vragenList[i].answers = _answerList;
                 }
                 
             }
@@ -249,10 +259,9 @@ namespace mol3.Views
 
         }
 
-        private List<Answer> getAnswersForQuestion(int vraagId)
+        private void getAnswersForQuestion(int vraagId)
         {
-            List<Answer> answerList = new List<Answer>();
-            const string getAnswer = "SELECT id, antwoordTekst, correct FROM antwoord WHERE vraagId = @vraagId";
+            const string getAnswer = "SELECT id, vraagid, antwoordTekst, correct FROM antwoord WHERE vraagId = @vraagId";
             try
             {
                 using (SqlConnection conn = new SqlConnection(_connectionString))
@@ -270,24 +279,58 @@ namespace mol3.Views
                                 {
                                     Answer a = new Answer();
                                     a.id = reader.GetInt32(0);
-                                    a.antwoordTekst = reader.GetString(1);
-                                    a.correct = reader.GetBoolean(2);
-                                    answerList.Add(a);
+                                    a.vraagId = reader.GetInt32(1);
+                                    a.antwoordTekst = reader.GetString(2);
+                                    a.correct = reader.GetBoolean(3);
+                                    _answerList.Add(a);
                                 }
                             }
                         }
                     }
-                    return answerList;
                 }
             }
             catch (Exception eSql)
             {
                 Debug.WriteLine(eSql.Message);
             }
-
-            return null;
         }
 
-
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            StopTimer();
+            const string InsertAnswerQuery = "insert into kanidaatvraag values(@kanidaatid, @vraagid, @antwoordid, @testid, @tijd, @wasCorrect)";
+            if(_selectedAnswer != null)
+            {
+                try
+                {
+                    using(var  conn = new SqlConnection(_connectionString))
+                    {
+                        conn.Open() ;
+                        if(conn.State == System.Data.ConnectionState.Open)
+                        {
+                            using(SqlCommand cmd = conn.CreateCommand())
+                            {
+                                cmd.Parameters.Add("@kanidaatid", SqlDbType.Int).Value = _testPerson.Id;
+                                cmd.Parameters.Add("@vraagid", SqlDbType.Int).Value = _currentQuestion;
+                                cmd.Parameters.Add("@antwoordid", SqlDbType.Int).Value = _selectedAnswer.id;
+                                cmd.Parameters.Add("@testid", SqlDbType.Int).Value = _currentTest.id;
+                                cmd.Parameters.Add("@tijd", SqlDbType.Decimal).Value = _timeQuestion;
+                                cmd.Parameters.Add("@wasCorrect", SqlDbType.Bit).Value = _selectedAnswer.correct;
+                                cmd.CommandText = InsertAnswerQuery;
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                    }
+                }
+                catch (Exception eSql)
+                {
+                    Debug.Write(eSql.Message);
+                }
+            }
+            else
+            {
+                Debug.Write("Er moet een antwoord worden gekozen!");
+            }
+        }
     }
 }

@@ -68,7 +68,7 @@ namespace mol3.Views
                 {
                     Payload payload = new Payload();
                     payload.item1 = name;
-                    payload.item2 = 0;
+                    payload.item2 = -1;
                     this.Frame.Navigate(typeof(MakeTestView), payload);
                 }
             }
